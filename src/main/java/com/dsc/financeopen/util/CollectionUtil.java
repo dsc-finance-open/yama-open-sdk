@@ -13,6 +13,8 @@ public class CollectionUtil {
 
     /**
      * map是否为空
+     * @param map
+     * @return
      */
     public static boolean isEmpty(Map<? extends Object, ? extends Object> map) {
         return map == null || map.isEmpty();
