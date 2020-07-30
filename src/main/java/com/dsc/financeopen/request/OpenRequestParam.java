@@ -16,6 +16,8 @@ public abstract class OpenRequestParam<E,T> {
 
     private T data;
 
+    public OpenRequestParam(){}
+
     public OpenRequestParam(String api) {
         this.api = api;
     }
