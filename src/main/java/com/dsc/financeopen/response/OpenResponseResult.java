@@ -26,6 +26,10 @@ public class OpenResponseResult<T> {
 
     private String traceId;
 
+    public Boolean isSuccess(){
+        return "200".equals(code);
+    }
+
     public OpenResponseResult() {
     }
 
