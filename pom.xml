@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dsc.financeopen</groupId>
+    <groupId>io.github.dsc-finance-open</groupId>
     <artifactId>yama-open-sdk</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
