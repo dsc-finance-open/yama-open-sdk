@@ -6,7 +6,7 @@
 
     <groupId>io.github.dsc-finance-open</groupId>
     <artifactId>yama-open-sdk</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <name>yama-open-sdk</name>
     <url>https://github.com/dsc-finance-open/yama-open-sdk</url>
