@@ -13,7 +13,7 @@ OpenClient 底层使用 okhttp3 client，为了复用连接，整个 SDK 只会�
 ````
         DriverLicenseRequest driverLicenseRequest = new DriverLicenseRequest();
         driverLicenseRequest.setName("盛超杰");
-        driverLicenseRequest.setIdCard("339005199205259014");
+        driverLicenseRequest.setIdCard("test");
         OpenClient client = new OpenClient(Environment.TEST,"xxx","xxx");
         OpenResponseResult<DriverLicenseResponse> response = client.execute(driverLicenseRequest);
         System.out.println(JSON.toJSONString(response));
