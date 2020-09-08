@@ -1,18 +1,20 @@
 package com.dsc.financeopen.request.carloan;
 
 import com.dsc.financeopen.request.OpenRequestParam;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
  * @author shengchaojie
  * @date 2020/6/29
  **/
-public class LoanRequest extends OpenRequestParam<Boolean, LoanRequest.OpenRequestDataWrapper> {
+public class OrderLoanRequest extends OpenRequestParam<Boolean, OrderLoanRequest.Wrapper> {
 
-    private static final String API = "com.souche.yama.carloan.facade.OrderAppFacade#loan";
+    private static final String API = "com.souche.yama.carloan.facade.CarLoanFacade#loanOrder";
 
-    public LoanRequest() {
+    public OrderLoanRequest() {
         super(API);
+        setData(new Wrapper(this));
     }
 
     @Override
@@ -21,12 +23,10 @@ public class LoanRequest extends OpenRequestParam<Boolean, LoanRequest.OpenReque
     }
 
     @Data
-    public static class OpenRequestDataWrapper{
-        OpenRequestData request;
+    @AllArgsConstructor
+    public static class Wrapper {
+        OrderLoanRequest request;
     }
-
-    @Data
-    public static class OpenRequestData{
 
         /**
          * 机构id
@@ -117,7 +117,6 @@ public class LoanRequest extends OpenRequestParam<Boolean, LoanRequest.OpenReque
          * 车商门店地址
          */
         private String carShopAddr;
-    }
 
 
 }
