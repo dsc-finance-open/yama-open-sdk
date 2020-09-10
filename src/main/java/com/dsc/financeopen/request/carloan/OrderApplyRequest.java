@@ -30,11 +30,6 @@ public class OrderApplyRequest extends OpenRequestParam<OrderApplyResponse, Orde
     }
 
     /**
-     * 机构id
-     */
-    private Long merchantId;
-
-    /**
      * 客户姓名
      */
     private String customerName;

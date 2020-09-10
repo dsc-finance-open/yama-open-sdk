@@ -12,7 +12,7 @@ import lombok.Data;
 public class OrderUpdateRequest extends OpenRequestParam<Boolean, OrderUpdateRequest.Wrapper> {
 
 
-    private static final String API = "com.souche.yama.carloan.facade.CarLoanFacade#closeOrder";
+    private static final String API = "com.souche.yama.carloan.facade.CarLoanFacade#updateOrder";
 
     public OrderUpdateRequest() {
         super(API);
@@ -29,11 +29,6 @@ public class OrderUpdateRequest extends OpenRequestParam<Boolean, OrderUpdateReq
     public static class Wrapper {
         private OrderUpdateRequest request;
     }
-
-    /**
-     * 机构id
-     */
-    private Long merchantId;
 
     /**
      * 订单号 混淆
