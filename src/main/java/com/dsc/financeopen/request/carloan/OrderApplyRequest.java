@@ -1,18 +1,21 @@
 package com.dsc.financeopen.request.carloan;
 
 import com.dsc.financeopen.request.OpenRequestParam;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
  * @author shengchaojie
  * @date 2020/6/28
  **/
-public class OrderApplyRequest extends OpenRequestParam<OrderApplyResponse,OrderApplyRequest.OrderApplyRequestDataWrapper> {
+@Data
+public class OrderApplyRequest extends OpenRequestParam<OrderApplyResponse, OrderApplyRequest.Wrapper> {
 
-    private static final String API = "com.souche.yama.carloan.facade.OrderAppFacade#orderApply";
+    private static final String API = "com.souche.yama.carloan.facade.CarLoanFacade#orderApply";
 
     public OrderApplyRequest() {
         super(API);
+        setData(new Wrapper(this));
     }
 
     @Override
@@ -21,152 +24,144 @@ public class OrderApplyRequest extends OpenRequestParam<OrderApplyResponse,Order
     }
 
     @Data
-    public static class OrderApplyRequestDataWrapper{
-        private OrderApplyRequestData request;
+    @AllArgsConstructor
+    public static class Wrapper {
+        private OrderApplyRequest request;
     }
 
-    @Data
-    public static class OrderApplyRequestData{
+    /**
+     * 客户姓名
+     */
+    private String customerName;
 
-        /**
-         * 机构id
-         */
-        private Long merchantId;
+    /**
+     * 手机号
+     */
+    private String mobile;
 
-        /**
-         * 客户姓名
-         */
-        private String customerName;
+    /**
+     * 身份证地址/常用地址
+     */
+    private String address;
 
-        /**
-         * 手机号
-         */
-        private String mobile;
+    /**
+     * 身份证号
+     */
+    private String certNo;
 
-        /**
-         * 身份证地址/常用地址
-         */
-        private String address;
+    /**
+     * 证件有效时间
+     */
+    private String certValidTime;
 
-        /**
-         * 身份证号
-         */
-        private String certNo;
+    /**
+     * 工作单位
+     * 可不填
+     */
+    private String company;
 
-        /**
-         * 证件有效时间
-         */
-        private String certValidTime;
+    /**
+     * 月收入 分
+     * 可不填
+     */
+    private Integer salary;
 
-        /**
-         * 工作单位
-         * 可不填
-         */
-        private String company;
+    /**
+     * 行业 国标码
+     * 可不填
+     */
+    private String industry;
 
-        /**
-         * 月收入 分
-         * 可不填
-         */
-        private Integer salary;
+    /**
+     * 职业 国标码
+     * 可不填
+     */
+    private String occupation;
 
-        /**
-         * 行业 国标码
-         * 可不填
-         */
-        private String industry;
+    /**
+     * 抵押人全称
+     * 可不填 或无
+     */
+    private String mortgagee;
 
-        /**
-         * 职业 国标码
-         * 可不填
-         */
-        private String occupation;
+    /**
+     * 品牌
+     */
+    private String brand;
 
-        /**
-         * 抵押人全称
-         * 可不填 或无
-         */
-        private String mortgagee;
+    /**
+     * 车系
+     */
+    private String series;
 
-        /**
-         * 品牌
-         */
-        private String brand;
+    /**
+     * 车型
+     */
+    private String type;
 
-        /**
-         * 车系
-         */
-        private String series;
+    /**
+     * 颜色
+     */
+    private String color;
 
-        /**
-         * 车型
-         */
-        private String type;
+    /**
+     * 销售人员
+     */
+    private String saler;
 
-        /**
-         * 颜色
-         */
-        private String color;
+    /**
+     * 销售人员手机号
+     */
+    private String salerMobile;
 
-        /**
-         * 销售人员
-         */
-        private String saler;
+    /**
+     * 车辆成交价 分
+     */
+    private Integer carPrice;
 
-        /**
-         * 销售人员手机号
-         */
-        private String salerMobile;
+    /**
+     * 车辆认证价 分
+     */
+    private Integer evaluatePrice;
 
-        /**
-         * 车辆成交价 分
-         */
-        private Integer carPrice;
+    /**
+     * 贷款总金额
+     */
+    private Integer loanAmount;
 
-        /**
-         * 车辆认证价 分
-         */
-        private Integer evaluatePrice;
+    /**
+     * 贷款总期数
+     */
+    private Integer loanPeriod;
 
-        /**
-         * 贷款总金额
-         */
-        private Integer loanAmount;
+    /**
+     * 首付款金额 分
+     */
+    private Integer downPayment;
 
-        /**
-         * 贷款总期数
-         */
-        private Integer loanPeriod;
+    /**
+     * 最低首付比例
+     */
+    private String downPaymentRatio;
 
-        /**
-         * 首付款金额 分
-         */
-        private Integer downPayment;
+    /**
+     * 尾款 分
+     */
+    private Integer lastPayment;
 
-        /**
-         * 最低首付比例
-         */
-        private String downPaymentRatio;
+    /**
+     * 月供 分
+     */
+    private Integer monthPayment;
 
-        /**
-         * 尾款 分
-         */
-        private Integer lastPayment;
+    /**
+     * 贷款年利率
+     */
+    private String interestRate;
 
-        /**
-         * 月供 分
-         */
-        private Integer monthPayment;
+    /**
+     * 罚息上浮比例
+     */
+    private String penaltyRate;
 
-        /**
-         * 贷款年利率
-         */
-        private String interestRate;
-
-        /**
-         * 罚息上浮比例
-         */
-        private String penaltyRate;
-
-    }
 }

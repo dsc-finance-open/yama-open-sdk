@@ -7,13 +7,14 @@ import lombok.Data;
  * @author shengchaojie
  * @date 2020/6/29
  **/
-public class OrderQueryRequest extends OpenRequestParam<OrderQueryResponse, OrderQueryRequest.OrderQueryRequestDataWrapper> {
+@Data
+public class OrderQueryRequest extends OpenRequestParam<OrderQueryResponse, OrderQueryRequest> {
 
-    private static final String API = "com.souche.yama.carloan.facade.OrderQueryFacade#getOrderByOrderNo";
-
+    private static final String API = "com.souche.yama.carloan.facade.CarLoanFacade#getOrderByOrderNo";
 
     public OrderQueryRequest() {
         super(API);
+        setData(this);
     }
 
     @Override
@@ -21,12 +22,6 @@ public class OrderQueryRequest extends OpenRequestParam<OrderQueryResponse, Orde
         return OrderQueryResponse.class;
     }
 
-    @Data
-    public static class OrderQueryRequestDataWrapper{
-
-        private Long merchantId;
-
-        private String orderNo;
-    }
+    private String orderNo;
 
 }
