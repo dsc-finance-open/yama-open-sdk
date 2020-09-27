@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 二手车估价
+ * 二手车估价(VIN)
  *
  * @author kangyahua
  * @date 2020/9/25
@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 public class CarEvaluationByVinRequest extends OpenRequestParam<CarEvaluationByVinResponse, CarEvaluationByVinRequest.Wrapper> {
 
-    private static final String API = "com.souche.yama.facade.CarEvaluationQueryFacade#queryCarEvaluationByVin";
+    private static final String API = "com.souche.yama.facade.CarEvaluationFacade#queryCarEvaluationByVin";
 
     public CarEvaluationByVinRequest() {
         super(API);
