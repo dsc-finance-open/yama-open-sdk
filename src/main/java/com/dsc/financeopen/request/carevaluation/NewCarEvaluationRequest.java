@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class NewCarEvaluationRequest extends OpenRequestParam<NewCarEvaluationResponse, NewCarEvaluationRequest.Wrapper> {
 
-    private static final String API = "com.souche.yama.facade.CarEvaluationFacade#queryNewCarEvaluation";
+    private static final String API = "com.souche.yama.facade.CarEvaluationQueryFacade#queryNewCarEvaluation";
 
     public NewCarEvaluationRequest() {
         super(API);

@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 public class CarEvaluationByVinRequest extends OpenRequestParam<CarEvaluationByVinResponse, CarEvaluationByVinRequest.Wrapper> {
 
-    private static final String API = "com.souche.yama.facade.CarEvaluationFacade#queryCarEvaluationByVin";
+    private static final String API = "com.souche.yama.facade.CarEvaluationQueryFacade#queryCarEvaluationByVin";
 
     public CarEvaluationByVinRequest() {
         super(API);
