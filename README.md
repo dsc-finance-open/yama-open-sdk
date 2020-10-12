@@ -1,3 +1,5 @@
+https://img.shields.io/maven-central/v/io.github.dsc-finance-open/yama-open-sdk.svg
+
 # sdk 概述
 ## 作用
 - 使金服开放平台的签名逻辑透明
