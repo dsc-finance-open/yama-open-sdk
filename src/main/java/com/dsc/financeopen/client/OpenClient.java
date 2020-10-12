@@ -21,17 +21,14 @@ import java.util.Objects;
  */
 public class OpenClient {
 
-    private static final HttpClientConfig DEFAULT_CONFIG = new HttpClientConfig();
-
     private String url;
     private String appKey;
     private String appSecret;
 
-    private HttpClientConfig httpClientConfig;
     private OpenRequest openRequest;
 
     public OpenClient(String url, String appKey, String secret) {
-        this(url, appKey, secret, DEFAULT_CONFIG);
+        this(url, appKey, secret, HttpClientConfig.DEFAULT);
     }
 
     public OpenClient(String url, String appKey, String secret, HttpClientConfig httpClientConfig) {
@@ -41,8 +38,6 @@ public class OpenClient {
         this.url = url;
         this.appKey = appKey;
         this.appSecret = secret;
-        this.httpClientConfig = httpClientConfig;
-
         this.openRequest = new OpenRequest(httpClientConfig);
     }
 
@@ -95,22 +90,4 @@ public class OpenClient {
             throw new OpenException("参数 api 不能为空");
         }
     }
-
-
-    public OpenRequest getOpenRequest() {
-        return openRequest;
-    }
-
-    public void setOpenRequest(OpenRequest openRequest) {
-        this.openRequest = openRequest;
-    }
-
-    public String getAppKey() {
-        return appKey;
-    }
-
-    public void setAppKey(String appKey) {
-        this.appKey = appKey;
-    }
-
 }

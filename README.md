@@ -48,8 +48,6 @@ OpenClient 底层使用 okhttp3 client，为了复用连接，整个 SDK 只会�
         System.out.println(JSON.toJSONString(response));
 ````
 
-
-
 ## 发送请求，指定超时时间(当前支持 connect time out 和 read time out)
 ````
         HttpClientConfig clientConfig = new HttpClientConfig();
@@ -58,3 +56,14 @@ OpenClient 底层使用 okhttp3 client，为了复用连接，整个 SDK 只会�
         OpenClient client = new OpenClient("http://localhost:8081/api","WWWWWWWWWWWWWWWWWWW","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",clientConfig);
         //...调用逻辑
 ````
+
+## 自定义配置OKhttp client
+有些情况下，我们需要做一些自定义配置，比如代理，可以使用一下方式实现
+```
+        HttpClientConfig httpClientConfig = new HttpClientConfig();
+        httpClientConfig.setCustomBuildLogic(a->{
+            a.proxy(new Proxy(Proxy.Type.HTTP,new InetSocketAddress("127.0.0.1",7891)));
+        });
+        OpenClient client = new OpenClient("http://localhost:8081/api","WWWWWWWWWWWWWWWWWWW","FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",clientConfig);
+        //...调用逻辑
+```
