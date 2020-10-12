@@ -1,4 +1,4 @@
-https://img.shields.io/maven-central/v/io.github.dsc-finance-open/yama-open-sdk.svg
+![Maven最新版本](https://img.shields.io/maven-central/v/io.github.dsc-finance-open/yama-open-sdk.svg)
 
 # sdk 概述
 # 作用
@@ -12,6 +12,14 @@ OpenClient 底层使用 okhttp3 client，为了复用连接，整个 SDK 只会�
 见wiki
 
 # 使用
+
+```
+        <dependency>
+            <groupId>io.github.dsc-finance-open</groupId>
+            <artifactId>yama-open-sdk</artifactId>
+            <version>见最新版本</version>
+        </dependency>
+```
 
 ## 定制请求
 针对一些业务方,我们会定制请求返回模型，方便接入者使用
