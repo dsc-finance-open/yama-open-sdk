@@ -58,7 +58,7 @@ OpenClient 底层使用 okhttp3 client，为了复用连接，整个 SDK 只会�
 ````
 
 ## 自定义配置OKhttp client
-有些情况下，我们需要做一些自定义配置，比如代理，可以使用一下方式实现
+有些情况下，我们需要做一些自定义配置，比如代理，可以使用以下方式实现
 ```
         HttpClientConfig httpClientConfig = new HttpClientConfig();
         httpClientConfig.setCustomBuildLogic(a->{
