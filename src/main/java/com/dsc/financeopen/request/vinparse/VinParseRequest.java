@@ -1,7 +1,6 @@
 package com.dsc.financeopen.request.vinparse;
 
 import com.dsc.financeopen.request.OpenRequestParam;
-import com.dsc.financeopen.request.carevaluation.NewCarEvaluationByVinResponse;
 import lombok.Data;
 
 import java.lang.reflect.Type;
@@ -9,7 +8,7 @@ import java.lang.reflect.Type;
 @Data
 public class VinParseRequest extends OpenRequestParam<VinParseResponse, VinParseRequest> {
 
-    private static final String API = "com.souche.yama.facade.CarEvaluationQueryFacade#queryNewCarEvaluationByVin";
+    private static final String API = "com.souche.yama.facade.VinParseQueryFacade#parse";
 
     public VinParseRequest() {
         super(API);
@@ -18,7 +17,7 @@ public class VinParseRequest extends OpenRequestParam<VinParseResponse, VinParse
 
     @Override
     public Type getResultClass() {
-        return NewCarEvaluationByVinResponse.class;
+        return VinParseResponse.class;
     }
 
     private String vin;
