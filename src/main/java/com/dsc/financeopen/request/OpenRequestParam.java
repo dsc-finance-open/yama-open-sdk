@@ -1,6 +1,9 @@
 package com.dsc.financeopen.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+
+import java.lang.reflect.Type;
 
 /**
  * @author lg
@@ -12,7 +15,8 @@ public abstract class OpenRequestParam<E,T> {
     /**
      * api
      */
-    private String api;
+
+    private transient String api;
 
     private T data;
 
@@ -22,5 +26,6 @@ public abstract class OpenRequestParam<E,T> {
         this.api = api;
     }
 
-    public abstract Class<E> getResultClass();
+    @JSONField(serialize = false)
+    public abstract Type getResultClass();
 }

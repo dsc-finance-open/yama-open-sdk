@@ -5,6 +5,7 @@ import com.dsc.financeopen.exception.OpenException;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.net.Proxy;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -64,7 +65,7 @@ public class OpenHttp {
     }
 
     private void initAvailableClient(HttpClientConfig httpClientConfig) {
-        availableClient = OpenHttp.baseClient.newBuilder()
+        OkHttpClient.Builder builder = OpenHttp.baseClient.newBuilder()
                 // 设置链接超时时间，默认10秒
                 .connectTimeout(httpClientConfig.getConnectTimeoutSeconds(), TimeUnit.SECONDS)
                 .readTimeout(httpClientConfig.getReadTimeoutSeconds(), TimeUnit.SECONDS)
@@ -79,8 +80,12 @@ public class OpenHttp {
                         List<Cookie> cookies = cookieStore.get(httpUrl.host());
                         return cookies != null ? cookies : new ArrayList<Cookie>();
                     }
-                }).build();
+                });
+        Optional.ofNullable(httpClientConfig.getCustomBuildLogic()).ifPresent(a->a.accept(builder));
+        availableClient = builder.build();
     }
+
+
 
     /**
      * get请求
